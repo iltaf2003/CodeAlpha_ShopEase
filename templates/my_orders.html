@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Orders
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">📦 My Orders</h2>
+
+{% if orders %}
+
+{% for order in orders %}
+
+<div class="card shadow mb-4">
+
+<div class="card-body">
+
+<h4>Order #{{ order.id }}</h4>
+
+<p>
+
+<strong>Date:</strong>
+
+{{ order.created_at }}
+
+</p>
+
+<p>
+
+<strong>Name:</strong>
+
+{{ order.full_name }}
+
+</p>
+
+<p>
+
+<strong>Total:</strong>
+
+₹{{ order.total_price }}
+
+</p>
+
+<p>
+
+<strong>Address:</strong>
+
+{{ order.address }}
+
+</p>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="alert alert-warning">
+
+You have not placed any orders yet.
+
+</div>
+
+{% endif %}
+
+{% endblock %}
